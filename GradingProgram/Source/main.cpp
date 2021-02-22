@@ -67,11 +67,11 @@ public:
 
 void createStudents(Students studentList[], int& classSize, int& numBoys, int& numGirls)
 {
-	std::ifstream boynames("C:/VisualStudioProjects/GradingProgram/GradingProgram/Source/boynames.txt");
+	std::ifstream boynames("Source/boynames.txt");
 	int boyNamesSize = countLines(boynames);
-	std::ifstream girlnames("C:/VisualStudioProjects/GradingProgram/GradingProgram/Source/girlnames.txt");
+	std::ifstream girlnames("Source/girlnames.txt");
 	int girlNamesSize = countLines(girlnames);
-	std::ifstream lastnames("C:/VisualStudioProjects/GradingProgram/GradingProgram/Source/lastnames.txt");
+	std::ifstream lastnames("Source/lastnames.txt");
 	int lastNamesSize = countLines(lastnames);
 
 	std::random_device rd; // obtain a random number from hardware
@@ -196,7 +196,7 @@ void createStudents(Students studentList[], int& classSize, int& numBoys, int& n
 int main()
 {
 	int classSize = createClassSize();
-	std::ifstream classList("C:/VisualStudioProjects/GradingProgram/GradingProgram/Source/classList.txt");
+	std::ifstream classList("Source/classList.txt");
 	int classListSize = countLines(classList);
 	std::string className = randomClass(classList, classListSize);
 	classList.close();
@@ -220,6 +220,7 @@ int main()
 	std::shuffle(std::begin(studentList), std::end(studentList), rng);
 
 	std::cout << "Class successfully created." << std::endl;
+	std::cout << "The commands are: #view class, #create assignment, #view assignments, #grade assignment, #enter grade, and #profile" << std::endl;
 	std::string userCommand;
 	while (true)
 	{
